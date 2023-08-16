@@ -9,7 +9,7 @@ def multiplication(x, y):
 
 def dividation(x, y):
     if y == 0:
-        raise ValueError('Can not divide by zero!') 
+        return ('Can not divide by zero!') 
     return x / y
 
 while True:
@@ -23,8 +23,13 @@ while True:
     userinput = input(": ")
 
     if userinput in ("Addition", "Substraction", "Multiplication", "Dividation", "Exit"):
-        x = float(input("Enter first number: "))
-        y = float(input("Enter second number: "))
+        while True:
+            try:
+                x = float(input("Enter first number: "))
+                y = float(input("Enter second number: "))
+                break
+            except ValueError:
+                print("Invalid input, please enter a number!")
 
         if userinput == "Addition":
             print(x, "+", y, "=", addition(x, y))
